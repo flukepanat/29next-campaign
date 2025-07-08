@@ -18,45 +18,62 @@
 <input type="text" id="orderRefId" placeholder="Enter order_ref_id">
 <button id="submitUpsellBtn">Submit Upsell</button>
 
-  <button id="createCaret">Create Cart</button>
+  <button id="createCart">Create Cart</button>
 
   <script>
-  document.getElementById('createCaret').addEventListener('click', function () {
+  document.getElementById('createCart').addEventListener('click', function () {
     const payload = {
-   "user": {
-       "email": "fluke@29next.com",
-       "first_name": "Man",
-       "last_name": "Campaigns",
-       "phone_number": "+15732020209"
-    //    ,"language": "1234"
+    "user": {
+        "email": "campaigns+69+62@29next.com",
+        "first_name": "Campaign",
+        "last_name": "#69",
+        "phone_number": "+4522554262",
+        "accepts_marketing": false
     },
     "lines": [
-{
-            "package_id":1,
-            "quantity": 2
+        {
+            "package_id": 1,
+            "quantity": 1,
+            "is_upsell": false
         }
     ],
-    // "vouchers": ["FREE_SHIPPING"],
+    "vouchers": [
+        "FLUKE10"
+    ],
     "attribution": {
-        "funnel": "M funnel",
-        "utm_source": "PA utm_source",
-        "utm_medium": "PA utm_medium",
-        "utm_campaign": "PA utm_campaign",
-        "utm_term": "PA utm_term",
-        "utm_content": "PA utm_content",
-        "gclid": "PA gclid",
+        "funnel": "Campaign69",
+        "utm_source": "Campaign69",
+        "utm_medium": "Campaign69",
+        "utm_campaign": "Campaign69",
+        "utm_term": "Campaign69",
+        "utm_content": "Campaign69",
+        "gclid": "Campaign69",
         "metadata": {
-        "attribution_meta_decimal": "0.01",
-        "attribution_meta_integer": "1000",
-        "attribution_meta_text": "Han"
+            "a_boolean_1": "False",
+            "a_dec_1": "69.69",
+            "a_int_1": "69",
+            "a_multitext_1": "Campaign #69",
+            "a_richtext_1": "Campaign #69",
+            "a_text_1": "Campaign #69"
         },
-        "affiliate": "PA affiliate",
-        "subaffiliate1": "PA subaffiliate1",
-        "subaffiliate2": "PA subaffiliate2",
-        "subaffiliate3": "PA subaffiliate3",
-        "subaffiliate4": "PA subaffiliate4",
-        "subaffiliate5": "PA subaffiliate5",
+        "affiliate": "Campaign69",
+        "subaffiliate1": "Campaign69",
+        "subaffiliate2": "Campaign69",
+        "subaffiliate3": "Campaign69",
+        "subaffiliate4": "Campaign69",
+        "subaffiliate5": "Campaign69",
         "agent": 1
+    },
+    "address": {
+        "title": "Mr",
+        "first_name": "Campaign",
+        "last_name": "#69",
+        "line1": "4765 Jennifer Lane",
+        "line4": "Mountain Pass",
+        "postcode": "92366",
+        "state": "CA",
+        "phone_number": "919-531-0517",
+        "country": "US"
     }
 };
     fetch('https://campaigns.anuwatwork.com/api/v1/carts/', {
