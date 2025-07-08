@@ -1,0 +1,211 @@
+<html>
+  
+  <script async src="https://campaigns.anuwatwork.com/js/v1/campaign/"></script>
+  <script>
+      window.addEventListener('load', function () {
+          nextCampaign.config({
+              apiKey: "v3LBcRT229Rlv1P7UQpQCah3qdQjVVwBSG95tOoW",
+          })
+          nextCampaign.event('page_view', {
+              title: document.title,
+              url: window.location.href
+          });
+      });
+  </script>
+  <button id="submitBtn">Submit Order</button>
+
+  <label for="orderRefId">Order Ref ID:</label>
+<input type="text" id="orderRefId" placeholder="Enter order_ref_id">
+<button id="submitUpsellBtn">Submit Upsell</button>
+
+  <button id="createCaret">Create Cart</button>
+
+  <script>
+  document.getElementById('createCaret').addEventListener('click', function () {
+    const payload = {
+   "user": {
+       "email": "fluke@29next.com",
+       "first_name": "Man",
+       "last_name": "Campaigns",
+       "phone_number": "+15732020209"
+    //    ,"language": "1234"
+    },
+    "lines": [
+{
+            "package_id":1,
+            "quantity": 2
+        }
+    ],
+    // "vouchers": ["FREE_SHIPPING"],
+    "attribution": {
+        "funnel": "M funnel",
+        "utm_source": "PA utm_source",
+        "utm_medium": "PA utm_medium",
+        "utm_campaign": "PA utm_campaign",
+        "utm_term": "PA utm_term",
+        "utm_content": "PA utm_content",
+        "gclid": "PA gclid",
+        "metadata": {
+        "attribution_meta_decimal": "0.01",
+        "attribution_meta_integer": "1000",
+        "attribution_meta_text": "Han"
+        },
+        "affiliate": "PA affiliate",
+        "subaffiliate1": "PA subaffiliate1",
+        "subaffiliate2": "PA subaffiliate2",
+        "subaffiliate3": "PA subaffiliate3",
+        "subaffiliate4": "PA subaffiliate4",
+        "subaffiliate5": "PA subaffiliate5",
+        "agent": 1
+    }
+};
+    fetch('https://campaigns.anuwatwork.com/api/v1/carts/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'v3LBcRT229Rlv1P7UQpQCah3qdQjVVwBSG95tOoW' // Replace with your actual token
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('HTTP error ' + response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Success:', data);
+      alert('Order submitted!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Failed to submit order.');
+    });
+  });
+</script>
+
+  <script>
+  document.getElementById('submitUpsellBtn').addEventListener('click', function () {
+    const orderRefId = document.getElementById('orderRefId').value.trim();
+
+    if (!orderRefId) {
+      alert('Please enter a valid order_ref_id.');
+      return;
+    }
+
+    const url = `https://campaigns.anuwatwork.com/api/v1/orders/${encodeURIComponent(orderRefId)}/upsells/`;
+
+    const payload = {
+      lines: [{ package_id: 1 }]
+    };
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'v3LBcRT229Rlv1P7UQpQCah3qdQjVVwBSG95tOoW' // Replace with your real token
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Upsell success:', data);
+      alert('Upsell submitted!');
+    })
+    .catch(error => {
+      console.error('Upsell error:', error);
+      alert('Failed to submit upsell.');
+    });
+  });
+</script>
+
+<script>
+  document.getElementById('submitBtn').addEventListener('click', function () {
+    const payload = {
+      lines: [{ package_id: 1, quantity: 3 }],
+      user: {
+        email: "anuwat217@29next.com",
+        first_name: "M001",
+        last_name: "Campaign#5",
+        phone_number: "+15732020217",
+        ip: "0.0.0.0"
+      },
+      attribution: {
+        funnel: "M funnel",
+        utm_source: "PA utm_source",
+        utm_medium: "PA utm_medium",
+        utm_campaign: "PA utm_campaign",
+        utm_term: "PA utm_term",
+        utm_content: "PA utm_content",
+        gclid: "PA gclid",
+        metadata: {
+          attribution_meta_decimal: "0.01",
+          attribution_meta_integer: "1000",
+          attribution_meta_text: "Han"
+        },
+        affiliate: "PA affiliate",
+        subaffiliate1: "PA subaffiliate1",
+        subaffiliate2: "PA subaffiliate2",
+        subaffiliate3: "PA subaffiliate3",
+        subaffiliate4: "PA subaffiliate4",
+        subaffiliate5: "PA subaffiliate5",
+        agent: 1
+      },
+      payment_detail: {
+        payment_method: "card_token",
+        card_token: "4s6P5V0dzdZyWSxZQszUxYAPRhB"
+      },
+      shipping_address: {
+        first_name: "test",
+        last_name: "test",
+        country: "US",
+        line1: "4389 Marigold Lane",
+        state: "FL",
+        postcode: "33134",
+        line4: "Coral Gables",
+        phone_number: "+12025550112"
+      },
+      shipping_method: 1,
+      billing_address: {
+        first_name: "test",
+        last_name: "test",
+        country: "US",
+        line1: "4389 Marigold Lane",
+        state: "FL",
+        postcode: "33134",
+        line4: "Coral Gables",
+        phone_number: "+12025550112"
+      },
+      success_url: "http://sandbox.localhost:3333/"
+    };
+
+    fetch('https://campaigns.anuwatwork.com/api/v1/orders/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'v3LBcRT229Rlv1P7UQpQCah3qdQjVVwBSG95tOoW' // Replace with your actual token
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('HTTP error ' + response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Success:', data);
+      alert('Order submitted!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Failed to submit order.');
+    });
+  });
+</script>
+</html>
