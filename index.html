@@ -1,6 +1,6 @@
 <html>
   
-  <script async src="https://campaigns.anuwatwork.com/js/v1/campaign/"></script>
+  <script async src="https://campaigns.apps-staging.29next.com/js/v1/campaign/"></script>
   <script>
       window.addEventListener('load', function () {
           nextCampaign.config({
@@ -81,7 +81,7 @@
         "country": "US"
     }
 };
-    fetch('https://campaigns.anuwatwork.com/api/v1/carts/', {
+    fetch('https://campaigns.apps-staging.29next.com/api/v1/carts/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -115,7 +115,7 @@
       return;
     }
 
-    const url = `https://campaigns.anuwatwork.com/api/v1/orders/${encodeURIComponent(orderRefId)}/upsells/`;
+    const url = `https://campaigns.apps-staging.29next.com/api/v1/orders/${encodeURIComponent(orderRefId)}/upsells/`;
 
     const payload = {
       lines: [{ package_id: 5 }]
@@ -232,7 +232,7 @@
     "success_url": "https://webhook.site/17453928-3b08-48c4-ae81-67378ce62e45"
 };
 
-    fetch('https://campaigns.anuwatwork.com/api/v1/orders/', {
+    fetch('https://campaigns.apps-staging.29next.com/api/v1/orders/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
