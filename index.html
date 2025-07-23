@@ -4,7 +4,7 @@
   <script>
       window.addEventListener('load', function () {
           nextCampaign.config({
-              apiKey: "KsPQWnpqt1qJ50TKfdca4rE6EW2GM56TtctPPvFj",
+              apiKey: "PebUOdiz1xdK4Ad64Epz6C4syg4MZXrGawZFA1JO",
           })
           nextCampaign.event('page_view', {
               title: document.title,
@@ -32,9 +32,14 @@
     },
     "lines": [
         {
-            "package_id": 1,
+            "package_id": 3,
             "quantity": 1,
             "is_upsell": false
+        },
+        {
+            "package_id": 4,
+            "quantity": 1,
+            "is_upsell": true
         }
     ],
     "vouchers": [
@@ -80,7 +85,7 @@
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'KsPQWnpqt1qJ50TKfdca4rE6EW2GM56TtctPPvFj' // Replace with your actual token
+        'Authorization': 'PebUOdiz1xdK4Ad64Epz6C4syg4MZXrGawZFA1JO' // Replace with your actual token
       },
       body: JSON.stringify(payload)
     })
@@ -113,14 +118,14 @@
     const url = `https://campaigns.anuwatwork.com/api/v1/orders/${encodeURIComponent(orderRefId)}/upsells/`;
 
     const payload = {
-      lines: [{ package_id: 1 }]
+      lines: [{ package_id: 5 }]
     };
 
     fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'KsPQWnpqt1qJ50TKfdca4rE6EW2GM56TtctPPvFj' // Replace with your real token
+        'Authorization': 'PebUOdiz1xdK4Ad64Epz6C4syg4MZXrGawZFA1JO' // Replace with your real token
       },
       body: JSON.stringify(payload)
     })
@@ -152,15 +157,15 @@
         "accepts_marketing": true,
         "language": "es"
     },
-    "lines": [
+   "lines": [
         {
-            "package_id": 1,
-            "quantity": 2,
+            "package_id": 3,
+            "quantity": 1,
             "is_upsell": false
         },
         {
-            "package_id": 2,
-            "quantity": 2,
+            "package_id": 4,
+            "quantity": 1,
             "is_upsell": true
         }
     ],
@@ -231,7 +236,7 @@
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'KsPQWnpqt1qJ50TKfdca4rE6EW2GM56TtctPPvFj' // Replace with your actual token
+        'Authorization': 'PebUOdiz1xdK4Ad64Epz6C4syg4MZXrGawZFA1JO' // Replace with your actual token
       },
       body: JSON.stringify(payload)
     })
