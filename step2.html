@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Campaign</title>
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script async src="https://campaigns.apps-staging.29next.com/js/v1/campaign/"></script>
+    <script>
+        window.addEventListener('load', function () {
+            nextCampaign.config({
+                apiKey: "hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9",
+            })
+            nextCampaign.event('page_view', {
+                title: document.title,
+                url: window.location.href,
+            });
+        });
+    </script>
+</head>
+
+<body class="bg-checkout">
+    <div class="topbar py-3 py-lg-4">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-5 d-flex justify-content-center justify-content-md-start align-items-center pb-2 pb-md-0">
+                    <div class="logo">
+                        <img src="img/logo.png" alt="Example Campaign" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-7 d-flex justify-content-center justify-content-md-end align-items-center">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item is-current"><span>CHECKOUT</span></li>
+                            <li class="breadcrumb-item">UPGRADES</li>
+                            <li class="breadcrumb-item">SUMMARY</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="main  pt-5">
+        <div class="container">
+            <div class="row justify-content-center ">
+
+                <div id="block--payment_opt1" class="col-12 col-lg-5">
+                    <form class="form" novalidate="novalidate">
+                        <input type="hidden" id="card_token" name="card_token">
+                        <input type="hidden" name="payment_method" id="payment_method">
+                        <input type="hidden" name="shipping_method" id="shipping_method">
+                        <input type="hidden" name="billing_same_as_shipping_address" id="billing_same_as_shipping_address" value='true'>
+                        <div class="step-title">
+                            STEP 3: PAYMENT OPTION
+                        </div>
+                        <hr class="mt-2">
+                        <div class="checkout_express-buttons">
+                            <div class="d-grid mb-3">
+                                <button type="button" class="btn btn-lg btn-express is-paypal pay-with-paypal"><span class="fs-8 text-dark me-1">Pay with</span> <img src="img/paypal.svg" height="30px" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="div-line fw-bold">OR PAY SECURELY WITH CREDIT CARD </div>
+                        <div class="bg-white rounded-3 border mb-3">
+                            <div id="form-cc" class="form form-cc p-2 p-lg-3">
+                                <div class="row g-2 mb-3">
+                                    <div class="col-12 d-flex justify-content-between align-items-center">
+                                        <h5>Credit/Debit:</h5>
+                                        <img src="img/creditCard.svg" alt="" class="ms-1">
+                                    </div>
+                                    <div id="payment-error-block"></div>
+                                    <div class="col-12 ">
+                                        <div class="form-cc-card">
+                                            <div id="bankcard-number" class="form-control p-0">
+                                            </div>
+                                        </div>
+                                        <div class="invalid-message invalid-cc" id="invalid-cc"></div>
+                                    </div>
+                                    <div class="col-sm col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <select class="form-select" name="expiry_month" id="id_expiry_month" autocomplete="cc-exp-month">
+                                                <option value="" selected disabled>Please Select</option>
+                                                <option value="01">(01) January</option>
+                                                <option value="02">(02) February</option>
+                                                <option value="03">(03) March</option>
+                                                <option value="04">(04) April</option>
+                                                <option value="05">(05) May</option>
+                                                <option value="06">(06) June</option>
+                                                <option value="07">(07) July</option>
+                                                <option value="08">(08) August</option>
+                                                <option value="09">(09) September</option>
+                                                <option value="10">(10) October</option>
+                                                <option value="11">(11) November</option>
+                                                <option value="12">(12) December</option>
+                                            </select>
+                                            <label for="id_expiry_month">Month</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <select class="form-select" name="expiry_year" id="id_expiry_year" autocomplete="cc-exp-year">
+                                                <option value="" selected disabled>Please Select</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026">2026</option>
+                                                <option value="2027">2027</option>
+                                                <option value="2028">2028</option>
+                                                <option value="2029">2029</option>
+                                                <option value="2030">2030</option>
+                                                <option value="2031">2031</option>
+                                                <option value="2032">2032</option>
+                                                <option value="2033">2033</option>
+                                                <option value="2034">2034</option>
+                                                <option value="2035">2035</option>
+                                                <option value="2036">2036</option>
+                                                <option value="2037">2037</option>
+                                                <option value="2038">2038</option>
+                                                <option value="2039">2039</option>
+                                                <option value="2040">2040</option>
+                                                <option value="2041">2041</option>
+                                                <option value="2042">2042</option>
+                                            </select>
+                                            <label for="id_expiry_year">Year</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-cc-cvv">
+                                            <div id="bankcard-cvv" class="form-control p-0"></div>
+                                        </div>
+                                        <div class="invalid-message invalid-cvv" id="invalid-cvv"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="step-3">
+                                    <div class="col">
+                                        <div class="d-grid mb-4">
+                                            <button id="cc-submit-button" type="button" class="btn btn-lg btn-success btn-checkout pay-with-cc" data-loading-text='Processing' data-text='Pay with Credit Card' disabled>Pay with Credit Card</button>
+                                        </div>
+                                    </div>
+                                    <div id="validation-error-block"></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container pt-4 pb-5">
+            <div class="row">
+                <div class="col-12 mt-3 pt-2 text-center footer-copyright d-flex flex-column flex-sm-row  justify-content-between align-items-center">
+                    <div class="mb-4 mb-sm-0 fs-8 text-light">
+                        ©2024 <span class="text-secondary">Example Campaign</span>. All Rights Reserved.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+    <script type="text/javascript">
+        const publicKey = "hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9";
+        const nextURL = "/upsell.html";
+
+    </script>
+    <script src="https://core.spreedly.com/iframe/iframe-v1.min.js"></script>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script type="text/javascript" src="js/campaign.js"></script>
+    <script type="text/javascript" src="js/checkout2.js"></script>
+    <script type="text/javascript" src="js/form2.js"></script>
+
+</html>

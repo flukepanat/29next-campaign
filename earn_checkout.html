@@ -1,0 +1,259 @@
+<html>
+  
+  <script async src="https://campaigns.apps-staging.29next.com/js/v1/campaign/"></script>
+  <script>
+      window.addEventListener('load', function () {
+          nextCampaign.config({
+              apiKey: "hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9",
+          })
+          nextCampaign.event('page_view', {
+              title: document.title,
+              url: window.location.href
+          });
+      });
+  </script>
+  <button id="submitBtn">Submit Order</button>
+
+  <label for="orderRefId">Order Ref ID:</label>
+<input type="text" id="orderRefId" placeholder="Enter order_ref_id">
+<button id="submitUpsellBtn">Submit Upsell</button>
+
+  <button id="createCart">Create Cart</button>
+
+  <script>
+  document.getElementById('createCart').addEventListener('click', function () {
+    const payload = {
+    "user": {
+        "email": "campaigns+69+62@29next.com",
+        "first_name": "Campaign",
+        "last_name": "#69",
+        "phone_number": "+4522554262",
+        "accepts_marketing": false
+    },
+    "lines": [
+        {
+            "package_id": 3,
+            "quantity": 1,
+            "is_upsell": false
+        },
+        {
+            "package_id": 4,
+            "quantity": 1,
+            "is_upsell": true
+        }
+    ],
+    "vouchers": [
+        "FLUKE10"
+    ],
+    "attribution": {
+        "funnel": "Campaign69",
+        "utm_source": "Campaign69",
+        "utm_medium": "Campaign69",
+        "utm_campaign": "Campaign69",
+        "utm_term": "Campaign69",
+        "utm_content": "Campaign69",
+        "gclid": "Campaign69",
+        "metadata": {
+            "a_boolean_1": "False",
+            "a_dec_1": "69.69",
+            "a_int_1": "69",
+            "a_multitext_1": "Campaign #69",
+            "a_richtext_1": "Campaign #69",
+            "a_text_1": "Campaign #69"
+        },
+        "affiliate": "Campaign69",
+        "subaffiliate1": "Campaign69",
+        "subaffiliate2": "Campaign69",
+        "subaffiliate3": "Campaign69",
+        "subaffiliate4": "Campaign69",
+        "subaffiliate5": "Campaign69",
+        "agent": 1
+    },
+    "address": {
+        "title": "Mr",
+        "first_name": "Campaign",
+        "last_name": "#69",
+        "line1": "4765 Jennifer Lane",
+        "line4": "Mountain Pass",
+        "postcode": "92366",
+        "state": "CA",
+        "phone_number": "919-531-0517",
+        "country": "US"
+    }
+};
+    fetch('https://campaigns.apps-staging.29next.com/api/v1/carts/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9' // Replace with your actual token
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('HTTP error ' + response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Success:', data);
+      alert('Order submitted!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Failed to submit order.');
+    });
+  });
+</script>
+
+  <script>
+  document.getElementById('submitUpsellBtn').addEventListener('click', function () {
+    const orderRefId = document.getElementById('orderRefId').value.trim();
+
+    if (!orderRefId) {
+      alert('Please enter a valid order_ref_id.');
+      return;
+    }
+
+    const url = `https://campaigns.apps-staging.29next.com/api/v1/orders/${encodeURIComponent(orderRefId)}/upsells/`;
+
+    const payload = {
+      lines: [{ package_id: 5 }]
+    };
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9' // Replace with your real token
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Upsell success:', data);
+      alert('Upsell submitted!');
+    })
+    .catch(error => {
+      console.error('Upsell error:', error);
+      alert('Failed to submit upsell.');
+    });
+  });
+</script>
+
+<script>
+  document.getElementById('submitBtn').addEventListener('click', function () {
+    const payload = {
+    "user": {
+        "email": "campaigns+69+62@29next.com",
+        "first_name": "Campaign",
+        "last_name": "#69",
+        "phone_number": "+4522556962",
+        "accepts_marketing": true,
+        "language": "es"
+    },
+   "lines": [
+        {
+            "package_id": 3,
+            "quantity": 1,
+            "is_upsell": false
+        },
+        {
+            "package_id": 4,
+            "quantity": 1,
+            "is_upsell": true
+        }
+    ],
+    "vouchers": [
+        "FLUKE10"
+    ],
+    "attribution": {
+        "funnel": "Campaign69",
+        "utm_source": "Campaign69",
+        "utm_medium": "Campaign69",
+        "utm_campaign": "Campaign69",
+        "utm_term": "Campaign69",
+        "utm_content": "Campaign69",
+        "gclid": "Campaign69",
+        "metadata": {
+            "a_boolean_1": "False",
+            "a_dec_1": "69.69",
+            "a_int_1": "69",
+            "a_multitext_1": "Campaign #69",
+            "a_richtext_1": "Campaign #69",
+            "a_text_1": "Campaign #69"
+        },
+        "affiliate": "Campaign69",
+        "subaffiliate1": "Campaign69",
+        "subaffiliate2": "Campaign69",
+        "subaffiliate3": "Campaign69",
+        "subaffiliate4": "Campaign69",
+        "subaffiliate5": "Campaign69",
+        "agent": 1
+    },
+    "use_default_shipping_address": false,
+    "shipping_address": {
+        "title": "Mr",
+        "first_name": "Campaign",
+        "last_name": "#69",
+        "line1": "4765 Jennifer Lane",
+        "line4": "Mountain Pass",
+        "postcode": "92366",
+        "state": "CA",
+        "phone_number": "919-531-0517",
+        "country": "US"
+    },
+    "billing_address": {
+        "title": "Mr",
+        "first_name": "Campaign",
+        "last_name": "#69",
+        "line1": "4765 Jennifer Lane",
+        "line4": "Mountain Pass",
+        "postcode": "92366",
+        "state": "CA",
+        "phone_number": "919-531-0517",
+        "country": "US"
+    },
+    "use_default_billing_address": false,
+    "billing_same_as_shipping_address": false,
+    "payment_detail": {
+        "payment_method": "card_token",
+        "card_token": "9KvPO1XRMraM8cC0Mqow4yG5o5G"
+        
+        
+        
+    },
+    "shipping_method": 1,
+    "success_url": "https://webhook.site/17453928-3b08-48c4-ae81-67378ce62e45"
+};
+
+    fetch('https://campaigns.apps-staging.29next.com/api/v1/orders/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9' // Replace with your actual token
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('HTTP error ' + response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Success:', data);
+      alert('Order submitted!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Failed to submit order.');
+    });
+  });
+</script>
+</html>

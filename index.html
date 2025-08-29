@@ -1,259 +1,308 @@
-<html>
-  
-  <script async src="https://campaigns.apps-staging.29next.com/js/v1/campaign/"></script>
-  <script>
-      window.addEventListener('load', function () {
-          nextCampaign.config({
-              apiKey: "hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9",
-          })
-          nextCampaign.event('page_view', {
-              title: document.title,
-              url: window.location.href
-          });
-      });
-  </script>
-  <button id="submitBtn">Submit Order</button>
+<!DOCTYPE html>
+<html lang="en">
 
-  <label for="orderRefId">Order Ref ID:</label>
-<input type="text" id="orderRefId" placeholder="Enter order_ref_id">
-<button id="submitUpsellBtn">Submit Upsell</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Campaign</title>
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/intlTelInput.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script async src="https://campaigns.apps-staging.29next.com/js/v1/campaign/"></script>
+    <script>
+        window.addEventListener('load', function () {
+            nextCampaign.config({
+                apiKey: "hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9",
+            })
+            nextCampaign.event('page_view', {
+                title: document.title,
+                url: window.location.href,
+            });
+        });
+    </script>
+</head>
 
-  <button id="createCart">Create Cart</button>
+<body class="bg-checkout">
+    <div class="topbar py-3 py-lg-4">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-5 d-flex justify-content-center justify-content-md-start align-items-center pb-2 pb-md-0">
+                    <div class="logo">
+                        <img src="img/logo.png" alt="Example Campaign" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-7 d-flex justify-content-center justify-content-md-end align-items-center">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item is-current"><span>CHECKOUT</span></li>
+                            <li class="breadcrumb-item">UPGRADES</li>
+                            <li class="breadcrumb-item">SUMMARY</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="main  pt-5">
+        <div class="container">
+            <div class="row justify-content-center ">
+                <div id="block--offers" class="col-12 col-lg-6">
+                    <div class="step-title">
+                        STEP 1: SELECT PACKAGE
+                    </div>
+                    <hr class="mt-2">
+                    <div class="offers d-flex flex-column">
+                    </div>
+                    <div class="mb-5">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="border bg-white rounded-3 p-4">
+                                    <div class="">
+                                        <div class="h5">Order Summary</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between px-3 pt-2 pb-1 border-bottom text-uppercase fs-7">
+                                        <div>Item</div>
+                                        <div>Price</div>
+                                    </div>
+                                    <div class="justify-content-between p-3 d-flex fw-bold">
+                                        <div><span class="selected-product-name">{{package}}</span> </div>
+                                        <div class=" text-secondary"><span class="selected-product-price"></span><span class="fs-8"> /ea</span></div>
+                                    </div>
+                                    <div class="rounded-3 p-3 bg-xlight">
+                                        <div class="justify-content-between py-2 d-flex fw-bold">
+                                            <div>Shipping:</div>
+                                            <div><span class="selected-shipping-price text-secondary">FREE</span></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between pt-1">
+                                            <div class=" text-dark fw-bold">Today's Total:</div>
+                                            <div><span class="order-summary-total-value fs-5 text-black fw-bold">0</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="block--payment_opt1" class="col-12 col-lg-5">
+                    <form class="form" novalidate="novalidate">
+                        <input type="hidden" name="shipping_method" id="shipping_method">
+                        <input id="fullNumber" type="hidden" name="phone_full">
+                        <div class="step-title">
+                            STEP 2: CUSTOMER INFORMATION
+                        </div>
+                        <hr class="mt-2">
+                        <div id="form-info" class="bg-white rounded-3 border p-2 p-lg-3 mb-5">
+                            <div class="form-customer-ino">
+                                <div class="row mb-3 g-2">
+                                    <div class="col-sm col-lg-12 col-xl-6">
+                                        <div class="form-floating  ">
+                                            <input type="text" name="first_name" maxlength="255" autocomplete="given-name" class="form-control " required id="id_first_name" placeholder="First Name">
+                                            <label for="id_first_name">First Name</label>
+                                        </div>
+                                        <div class="invalid-message invalid-fname"></div>
+                                    </div>
+                                    <div class="col-sm col-lg-12 col-xl-6">
+                                        <div class="form-floating  ">
+                                            <input type="text" name="last_name" maxlength="255" autocomplete="family-name" class="form-control " id="id_last_name" placeholder="Last Name">
+                                            <label for="id_last_name">Last Name</label>
+                                        </div>
+                                        <div class="invalid-message invalid-lname"></div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating  ">
+                                            <input type="email" placeholder="Email address" name="email" maxlength="254" class="form-control " id="id_email" autocomplete="email">
+                                            <label for="id_email">Email</label>
+                                        </div>
+                                        <div class="invalid-message invalid-email"></div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="input-group">
 
-  <script>
-  document.getElementById('createCart').addEventListener('click', function () {
-    const payload = {
-    "user": {
-        "email": "campaigns+69+62@29next.com",
-        "first_name": "Campaign",
-        "last_name": "#69",
-        "phone_number": "+4522554262",
-        "accepts_marketing": false
-    },
-    "lines": [
-        {
-            "package_id": 3,
-            "quantity": 1,
-            "is_upsell": false
-        },
-        {
-            "package_id": 4,
-            "quantity": 1,
-            "is_upsell": true
-        }
-    ],
-    "vouchers": [
-        "FLUKE10"
-    ],
-    "attribution": {
-        "funnel": "Campaign69",
-        "utm_source": "Campaign69",
-        "utm_medium": "Campaign69",
-        "utm_campaign": "Campaign69",
-        "utm_term": "Campaign69",
-        "utm_content": "Campaign69",
-        "gclid": "Campaign69",
-        "metadata": {
-            "a_boolean_1": "False",
-            "a_dec_1": "69.69",
-            "a_int_1": "69",
-            "a_multitext_1": "Campaign #69",
-            "a_richtext_1": "Campaign #69",
-            "a_text_1": "Campaign #69"
-        },
-        "affiliate": "Campaign69",
-        "subaffiliate1": "Campaign69",
-        "subaffiliate2": "Campaign69",
-        "subaffiliate3": "Campaign69",
-        "subaffiliate4": "Campaign69",
-        "subaffiliate5": "Campaign69",
-        "agent": 1
-    },
-    "address": {
-        "title": "Mr",
-        "first_name": "Campaign",
-        "last_name": "#69",
-        "line1": "4765 Jennifer Lane",
-        "line4": "Mountain Pass",
-        "postcode": "92366",
-        "state": "CA",
-        "phone_number": "919-531-0517",
-        "country": "US"
-    }
-};
-    fetch('https://campaigns.apps-staging.29next.com/api/v1/carts/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9' // Replace with your actual token
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('HTTP error ' + response.status);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Success:', data);
-      alert('Order submitted!');
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Failed to submit order.');
-    });
-  });
-</script>
+                                            <input type="tel" name="phone_number" placeholder="Phone number (optional)" autocomplete="tel" class="form-control " id="id_phone_number">
+                                        </div>
+                                        <div class="invalid-message invalid-ph"></div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating  ">
+                                            <input type="text" placeholder="Address" name="shipping_address_line1" maxlength="255" autocomplete="address-line1" class="form-control" id="id_shipping_address_line1">
+                                            <label for="id_shipping_address_line1">Address</label>
+                                        </div>
+                                        <div class="invalid-message invalid-shipping_address_line1"></div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating  ">
+                                            <input type="text" name="shipping_address_line4" maxlength="255" autocomplete="address-level2" class="form-control " id="id_shipping_address_line4" placeholder="City">
+                                            <label for="id_shipping_address_line4">City</label>
+                                        </div>
+                                        <div class="invalid-message invalid-shipping_address_line4"></div>
+                                    </div>
+                                    <div class="col-sm col-lg-12 col-xl-6">
+                                        <div class="form-floating  ">
+                                            <select class="form-select" name="shipping_state" id="id_shipping_state" autocomplete="address-level1">
+                                                <option value="">Select state</option>
+                                                <option value="AL">Alabama</option>
+                                                <option value="AK">Alaska</option>
+                                                <option value="AZ">Arizona</option>
+                                                <option value="AR">Arkansas</option>
+                                                <option value="CA">California</option>
+                                                <option value="CO">Colorado</option>
+                                                <option value="CT">Connecticut</option>
+                                                <option value="DE">Delaware</option>
+                                                <option value="DC">District of Columbia</option>
+                                                <option value="FL">Florida</option>
+                                                <option value="GA">Georgia</option>
+                                                <option value="HI">Hawaii</option>
+                                                <option value="ID">Idaho</option>
+                                                <option value="IL">Illinois</option>
+                                                <option value="IN">Indiana</option>
+                                                <option value="IA">Iowa</option>
+                                                <option value="KS">Kansas</option>
+                                                <option value="KY">Kentucky</option>
+                                                <option value="LA">Louisiana</option>
+                                                <option value="ME">Maine</option>
+                                                <option value="MD">Maryland</option>
+                                                <option value="MA">Massachusetts</option>
+                                                <option value="MI">Michigan</option>
+                                                <option value="MN">Minnesota</option>
+                                                <option value="MS">Mississippi</option>
+                                                <option value="MO">Missouri</option>
+                                                <option value="MT">Montana</option>
+                                                <option value="NE">Nebraska</option>
+                                                <option value="NV">Nevada</option>
+                                                <option value="NH">New Hampshire</option>
+                                                <option value="NJ">New Jersey</option>
+                                                <option value="NM">New Mexico</option>
+                                                <option value="NY">New York</option>
+                                                <option value="NC">North Carolina</option>
+                                                <option value="ND">North Dakota</option>
+                                                <option value="OH">Ohio</option>
+                                                <option value="OK">Oklahoma</option>
+                                                <option value="OR">Oregon</option>
+                                                <option value="PA">Pennsylvania</option>
+                                                <option value="RI">Rhode Island</option>
+                                                <option value="SC">South Carolina</option>
+                                                <option value="SD">South Dakota</option>
+                                                <option value="TN">Tennessee</option>
+                                                <option value="TX">Texas</option>
+                                                <option value="UT">Utah</option>
+                                                <option value="VT">Vermont</option>
+                                                <option value="VA">Virginia</option>
+                                                <option value="WA">Washington</option>
+                                                <option value="WV">West Virginia</option>
+                                                <option value="WI">Wisconsin</option>
+                                                <option value="WY">Wyoming</option>
+                                            </select>
+                                            <label for="id_shipping_state">State</label>
+                                        </div>
+                                        <div class="invalid-message invalid-shipping_state"></div>
+                                    </div>
+                                    <div class="col-sm col-lg-12 col-xl-6">
+                                        <div class="form-floating  ">
+                                            <input type="text" placeholder="ZIP" name="shipping_postcode" maxlength="64" autocomplete="postal-code" class="form-control " id="id_shipping_postcode">
+                                            <label for="id_shipping_postcode">ZIP</label>
+                                        </div>
+                                        <div class="invalid-message invalid-shipping_postcode"></div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating  ">
+                                            <select class="form-select" name="shipping_country" id="id_shipping_country">
+                                                <option value="US">United States</option>
+                                            </select>
+                                            <label for="id_shipping_country">Country</label>
+                                        </div>
+                                        <div class="invalid-message invalid-shipping_country"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-  <script>
-  document.getElementById('submitUpsellBtn').addEventListener('click', function () {
-    const orderRefId = document.getElementById('orderRefId').value.trim();
 
-    if (!orderRefId) {
-      alert('Please enter a valid order_ref_id.');
-      return;
-    }
+                                <div class="row" id="step-3">
+                                    <div class="col">
+                                        <div class="d-grid mb-4">
+                                            <button type="button" class="btn btn-lg btn-success btn-checkout btn-cart" data-loading-text='Processing' data-text='Continue to Payment' >Continue to Payment</button>
+                                        </div>
+                                    </div>
+                                    <div id="validation-error-block"></div>
+                                </div>
 
-    const url = `https://campaigns.apps-staging.29next.com/api/v1/orders/${encodeURIComponent(orderRefId)}/upsells/`;
+                            </div>
+                        </div>
 
-    const payload = {
-      lines: [{ package_id: 5 }]
-    };
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container pt-4 pb-5">
+            <div class="row">
+                <div class="col-12 mt-3 pt-2 text-center footer-copyright d-flex flex-column flex-sm-row  justify-content-between align-items-center">
+                    <div class="mb-4 mb-sm-0 fs-8 text-light">
+                        ©2024 <span class="text-secondary">Example Campaign</span>. All Rights Reserved.
+                    </div>
 
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9' // Replace with your real token
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Upsell success:', data);
-      alert('Upsell submitted!');
-    })
-    .catch(error => {
-      console.error('Upsell error:', error);
-      alert('Failed to submit upsell.');
-    });
-  });
-</script>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+    <script type="text/javascript">
+        const publicKey = "hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9";
+        const nextURL = "/step2.html";
+        const offers = {
+            priceRetail: 178.00,  // Assuming this comes from shipping methods
+            packages: [
+                {
+                    "id": 1,
+                    "image": "https://d1wlg0jg58kzet.cloudfront.net/media/cache/94/d8/94d8e68b1263b450d0c7e0daac4a021e.png",
+                    "quantity": 1,
+                    "name": "Product 3DS fallback x 1",
+                    "price": 93.98,
+                    "priceTotal": 93.98,
+                    "shippingPrice": 20.00,
+                    "shippingMethod": 1
+                },
+                {
+                    "id": 2,
+                    "image": "https://d1wlg0jg58kzet.cloudfront.net/media/cache/d0/86/d086f9e2487db4b82bcb12f4db6c548a.png",
+                    "quantity": 1,
+                    "name": "Product 3DS fallback x 1",
+                    "price": 93.98,
+                    "priceTotal": 93.98,
+                    "shippingPrice": 20.00,
+                    "shippingMethod": 1
+                },
+                {
+                    "id": 3,
+                    "image": "https://d1wlg0jg58kzet.cloudfront.net/media/cache/47/6f/476f0aee7cb4c6299fecc949be7cf4e8.png",
+                    "quantity": 1,
+                    "name": "Product 3DS fallback x 1",
+                    "price": 93.98,
+                    "priceTotal": 93.98,
+                    "shippingPrice": 20.00,
+                    "shippingMethod": 1
+                },
+                {
+                    "id": 4,
+                    "image": "https://d1wlg0jg58kzet.cloudfront.net/media/cache/a7/3e/a73ee9203515fb6ac7420d0bd9863390.png",
+                    "quantity": 1,
+                    "name": "BizzyBee x 1",
+                    "price": 94.00,
+                    "priceTotal": 94.00,
+                    "shippingPrice": 20.00,
+                    "shippingMethod": 1
+                }
+            ]
+        };
+        let selectedOfferId = "1";
 
-<script>
-  document.getElementById('submitBtn').addEventListener('click', function () {
-    const payload = {
-    "user": {
-        "email": "campaigns+69+62@29next.com",
-        "first_name": "Campaign",
-        "last_name": "#69",
-        "phone_number": "+4522556962",
-        "accepts_marketing": true,
-        "language": "es"
-    },
-   "lines": [
-        {
-            "package_id": 3,
-            "quantity": 1,
-            "is_upsell": false
-        },
-        {
-            "package_id": 4,
-            "quantity": 1,
-            "is_upsell": true
-        }
-    ],
-    "vouchers": [
-        "FLUKE10"
-    ],
-    "attribution": {
-        "funnel": "Campaign69",
-        "utm_source": "Campaign69",
-        "utm_medium": "Campaign69",
-        "utm_campaign": "Campaign69",
-        "utm_term": "Campaign69",
-        "utm_content": "Campaign69",
-        "gclid": "Campaign69",
-        "metadata": {
-            "a_boolean_1": "False",
-            "a_dec_1": "69.69",
-            "a_int_1": "69",
-            "a_multitext_1": "Campaign #69",
-            "a_richtext_1": "Campaign #69",
-            "a_text_1": "Campaign #69"
-        },
-        "affiliate": "Campaign69",
-        "subaffiliate1": "Campaign69",
-        "subaffiliate2": "Campaign69",
-        "subaffiliate3": "Campaign69",
-        "subaffiliate4": "Campaign69",
-        "subaffiliate5": "Campaign69",
-        "agent": 1
-    },
-    "use_default_shipping_address": false,
-    "shipping_address": {
-        "title": "Mr",
-        "first_name": "Campaign",
-        "last_name": "#69",
-        "line1": "4765 Jennifer Lane",
-        "line4": "Mountain Pass",
-        "postcode": "92366",
-        "state": "CA",
-        "phone_number": "919-531-0517",
-        "country": "US"
-    },
-    "billing_address": {
-        "title": "Mr",
-        "first_name": "Campaign",
-        "last_name": "#69",
-        "line1": "4765 Jennifer Lane",
-        "line4": "Mountain Pass",
-        "postcode": "92366",
-        "state": "CA",
-        "phone_number": "919-531-0517",
-        "country": "US"
-    },
-    "use_default_billing_address": false,
-    "billing_same_as_shipping_address": false,
-    "payment_detail": {
-        "payment_method": "card_token",
-        "card_token": "9KvPO1XRMraM8cC0Mqow4yG5o5G"
-        
-        
-        
-    },
-    "shipping_method": 1,
-    "success_url": "https://webhook.site/17453928-3b08-48c4-ae81-67378ce62e45"
-};
+    </script>
+    <script type="text/javascript" src="js/intlTelInput.min.js"></script>
+    <script type="text/javascript" src="js/just-validate.production.min.js"></script>
+    <script type="text/javascript" src="js/campaign.js"></script>
+    <script type="text/javascript" src="js/checkout1.js"></script>
+    <script type="text/javascript" src="js/form1.js"></script>
 
-    fetch('https://campaigns.apps-staging.29next.com/api/v1/orders/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'hK5TbghrQoxrHc6s0fiuTDkMW2CWUyV7XoSmX6a9' // Replace with your actual token
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('HTTP error ' + response.status);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Success:', data);
-      alert('Order submitted!');
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Failed to submit order.');
-    });
-  });
-</script>
 </html>
